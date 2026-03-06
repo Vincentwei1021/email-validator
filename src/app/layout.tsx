@@ -7,37 +7,52 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://emailvalidator.dev";
 
 export const metadata: Metadata = {
-  title: "Free Email Validator Online — Verify Any Email Address | EmailValidator",
+  title: "Free Email Validator Online | Email Verification Tool",
   description:
-    "Validate any email address instantly. Check syntax, MX records, deliverability, and disposable email detection — free, no sign-up required.",
+    "Check any email address with our free email verification tool. Validate syntax, MX records, SMTP deliverability & detect disposable emails. No sign-up — 100% private.",
   keywords: [
     "email validator",
-    "email verification",
+    "email verification tool",
+    "check email address",
     "verify email address",
     "email checker",
+    "email verifier",
     "check email deliverability",
     "MX record check",
     "disposable email detector",
-    "free email validator",
+    "free email validator online",
+    "email address checker",
   ],
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Free Email Validator Online | EmailValidator",
+    title: "Free Email Validator Online | Email Verification Tool",
     description:
-      "Validate any email address instantly. Check syntax, MX records, and deliverability — free, no sign-up.",
+      "Check any email address instantly — validate syntax, MX records, SMTP & disposable emails. Free, no sign-up.",
     url: siteUrl,
     siteName: "EmailValidator",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "EmailValidator — Free Email Verification Tool Online",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Email Validator Online | EmailValidator",
+    title: "Free Email Validator Online | Email Verification Tool",
     description:
-      "Validate any email address instantly. Check syntax, MX records, and deliverability — free.",
+      "Check any email address instantly — validate syntax, MX records, SMTP & disposable emails. Free, no sign-up.",
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: { index: true, follow: true },
+  other: {
+    "theme-color": "#059669",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
