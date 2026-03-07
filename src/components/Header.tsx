@@ -2,21 +2,15 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="text-xl font-bold text-emerald-600">
-          ✉ EmailValidator
+    <header className="sticky top-0 z-50 border-b border-gray-200/60 bg-gray-50/80 backdrop-blur-xl">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
+        <Link href="/" className="font-[family-name:var(--font-heading)] text-xl font-bold text-emerald-600 tracking-tight">
+          ✉️ MailCheck
         </Link>
         <div className="flex items-center gap-6">
-          <Link href="/#validator" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">
-            Validator
-          </Link>
-          <Link href="/#faq" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">
-            FAQ
-          </Link>
-          <Link href="/blog" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">
-            Blog
-          </Link>
+          <Link href="/#validator" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">Validator</Link>
+          <Link href="/#faq" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">FAQ</Link>
+          <Link href="/blog" className="text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600">Blog</Link>
         </div>
       </nav>
     </header>

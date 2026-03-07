@@ -113,6 +113,7 @@ export default function EmailValidatorTool() {
 
   return (
     <section id="validator" className="px-4 py-12 sm:px-6 sm:py-16">
+      <div className="mx-auto max-w-3xl rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-200/60 sm:p-8">
       <h2 className="sr-only">Email Validation Tool</h2>
       <div className="mx-auto max-w-3xl">
         {/* Mode toggle */}
@@ -156,7 +157,7 @@ export default function EmailValidatorTool() {
             {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
 
             {result && v && (
-              <div className="mt-8 space-y-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="mt-8 space-y-6 rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm animate-fade-in">
                 {/* Verdict badge */}
                 <div className="flex items-center justify-between">
                   <div>
@@ -245,6 +246,7 @@ export default function EmailValidatorTool() {
             )}
           </>
         )}
+      </div>
       </div>
     </section>
   );

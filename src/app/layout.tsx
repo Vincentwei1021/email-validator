@@ -1,64 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-heading", weight: ["400","500","600","700"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://emailvalidator.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://email.toolboxlite.com";
 
 export const metadata: Metadata = {
-  title: "Free Email Validator Online | Email Verification Tool",
-  description:
-    "Check any email address with our free email verification tool. Validate syntax, MX records, SMTP deliverability & detect disposable emails. No sign-up — 100% private.",
-  keywords: [
-    "email validator",
-    "email verification tool",
-    "check email address",
-    "verify email address",
-    "email checker",
-    "email verifier",
-    "check email deliverability",
-    "MX record check",
-    "disposable email detector",
-    "free email validator online",
-    "email address checker",
-  ],
+  title: "Free Email Validator Online — Verify Any Email Address | MailCheck",
+  description: "Instantly validate email addresses — check syntax, MX records, SMTP deliverability, and disposable detection. Free, fast, no sign-up.",
+  keywords: ["email validator", "email verification", "check email", "verify email address", "MX check", "disposable email check", "free email validator"],
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Free Email Validator Online | Email Verification Tool",
-    description:
-      "Check any email address instantly — validate syntax, MX records, SMTP & disposable emails. Free, no sign-up.",
-    url: siteUrl,
-    siteName: "EmailValidator",
-    type: "website",
-    locale: "en_US",
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "EmailValidator — Free Email Verification Tool Online",
-      },
-    ],
+    title: "Free Email Validator Online | MailCheck",
+    description: "Instantly validate any email address — syntax, MX, SMTP, disposable check. Free and fast.",
+    url: siteUrl, siteName: "MailCheck", type: "website", locale: "en_US",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Email Validator Online | Email Verification Tool",
-    description:
-      "Check any email address instantly — validate syntax, MX records, SMTP & disposable emails. Free, no sign-up.",
-    images: [`${siteUrl}/og-image.png`],
-  },
+  twitter: { card: "summary_large_image", title: "Free Email Validator | MailCheck", description: "Validate any email address instantly — free, no sign-up." },
   robots: { index: true, follow: true },
-  other: {
-    "theme-color": "#059669",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased bg-white text-gray-900`}>
+      <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased bg-gray-50 text-gray-900`}>
         {children}
       </body>
     </html>
