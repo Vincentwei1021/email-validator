@@ -46,7 +46,7 @@ const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "EmailValidator",
-  url: "https://emailvalidator.dev",
+  url: "https://email.toolboxlite.com",
   description:
     "Free online email validator and verification tool. Check syntax, MX records, deliverability, and disposable email detection instantly.",
   applicationCategory: "UtilityApplication",
