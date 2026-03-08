@@ -37,11 +37,11 @@ function ScoreBar({ score }: { score: number }) {
   );
 }
 
-function CheckRow({ label, pass, detail }: { label: string; pass: boolean; detail?: string }) {
+function CheckRow({ label, pass, detail, neutral }: { label: string; pass: boolean; detail?: string; neutral?: boolean }) {
   return (
     <div className="flex items-start gap-3 py-2">
-      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs ${pass ? "bg-emerald-100 text-emerald-600" : "bg-red-100 text-red-600"}`}>
-        {pass ? "✓" : "✗"}
+      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs ${neutral ? "bg-gray-100 text-gray-500" : pass ? "bg-emerald-100 text-emerald-600" : "bg-red-100 text-red-600"}`}>
+        {neutral ? "–" : pass ? "✓" : "✗"}
       </span>
       <div>
         <span className="text-sm font-medium text-gray-800">{label}</span>
@@ -175,7 +175,18 @@ export default function EmailValidatorTool() {
                 <div className="divide-y divide-gray-100">
                   <CheckRow label="Valid Syntax" pass={result.valid_syntax} detail={result.valid_syntax ? "Email format is correct" : "Email format is invalid"} />
                   <CheckRow label="MX Records Found" pass={result.mx_found} detail={result.mx_found ? `${result.mx_records.length} MX record(s) found` : "No MX records — domain cannot receive email"} />
-                  <CheckRow label="SMTP Reachable" pass={result.smtp_reachable} detail={result.smtp_reachable ? "Mail server accepted the address" : result.smtp_response || "Could not verify with mail server"} />
+                  <CheckRow
+                    label="SMTP Reachable"
+                    pass={result.smtp_reachable}
+                    neutral={!result.smtp_reachable && (result.smtp_response.includes("Connection error") || result.smtp_response === "Timeout")}
+                    detail={
+                      result.smtp_reachable
+                        ? "Mail server accepted the address"
+                        : result.smtp_response.includes("Connection error") || result.smtp_response === "Timeout"
+                          ? "SMTP check unavailable \u2014 this doesn\u0027t affect the overall result"
+                          : result.smtp_response || "Could not verify with mail server"
+                    }
+                  />
                   <CheckRow label="Not Disposable" pass={!result.is_disposable} detail={result.is_disposable ? "This is a disposable/temporary email address" : "This is a permanent email provider"} />
                 </div>
 
