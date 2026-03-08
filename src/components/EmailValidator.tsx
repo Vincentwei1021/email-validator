@@ -7,7 +7,7 @@ interface ValidationResult {
   valid_syntax: boolean;
   mx_found: boolean;
   mx_records: Array<{ exchange: string; priority: number }>;
-  smtp_reachable: boolean;
+  smtp_reachable: boolean | null;
   smtp_response: string;
   is_disposable: boolean;
   score: number;
@@ -177,13 +177,13 @@ export default function EmailValidatorTool() {
                   <CheckRow label="MX Records Found" pass={result.mx_found} detail={result.mx_found ? `${result.mx_records.length} MX record(s) found` : "No MX records — domain cannot receive email"} />
                   <CheckRow
                     label="SMTP Reachable"
-                    pass={result.smtp_reachable}
-                    neutral={!result.smtp_reachable && (result.smtp_response.includes("Connection error") || result.smtp_response === "Timeout")}
+                    pass={result.smtp_reachable === true}
+                    neutral={result.smtp_reachable === null}
                     detail={
-                      result.smtp_reachable
+                      result.smtp_reachable === true
                         ? "Mail server accepted the address"
-                        : result.smtp_response.includes("Connection error") || result.smtp_response === "Timeout"
-                          ? "SMTP check unavailable \u2014 this doesn\u0027t affect the overall result"
+                        : result.smtp_reachable === null
+                          ? "Unable to verify SMTP — this doesn't affect the overall result"
                           : result.smtp_response || "Could not verify with mail server"
                     }
                   />
