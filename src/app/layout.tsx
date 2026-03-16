@@ -1,3 +1,4 @@
+import FeedbackWidget from "@/components/FeedbackWidget";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased bg-gray-50 text-gray-900`}>
         {children}
+        <FeedbackWidget />
       </body>
     </html>
   );
