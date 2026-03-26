@@ -45,7 +45,7 @@ const faqItems = [
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "EmailValidator",
+  name: "MailCheck",
   url: "https://email.toolboxlite.com",
   description:
     "Free online email validator and verification tool. Check syntax, MX records, deliverability, and disposable email detection instantly.",
@@ -75,7 +75,7 @@ const howToSchema = {
   "@type": "HowTo",
   name: "How to Check an Email Address Online for Free",
   description:
-    "Follow these simple steps to verify any email address using EmailValidator — a free online email verification tool.",
+    "Follow these simple steps to verify any email address using MailCheck — a free online email verification tool.",
   step: [
     {
       "@type": "HowToStep",
@@ -93,7 +93,7 @@ const howToSchema = {
       text: "See a detailed breakdown: deliverability verdict, score, MX records, SMTP status, and whether the address is disposable. Use the verdict to decide if the email is safe to use.",
     },
   ],
-  tool: { "@type": "HowToTool", name: "EmailValidator — Free Email Verification Tool" },
+  tool: { "@type": "HowToTool", name: "MailCheck — Free Email Verification Tool" },
 };
 
 export default function Home() {
@@ -150,11 +150,11 @@ export default function Home() {
         <section className="px-4 py-12 sm:px-6 sm:py-16">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              About EmailValidator
+              About MailCheck
             </h2>
             <div className="mt-4 space-y-4 text-gray-600 leading-relaxed text-left sm:text-center">
               <p>
-                <strong>EmailValidator</strong> is a <strong>free email verification tool</strong>{" "}
+                <strong>MailCheck</strong> is a <strong>free email verification tool</strong>{" "}
                 designed to help you <strong>check any email address</strong> in seconds. Whether
                 you&apos;re a developer building a sign-up form, a marketer cleaning a mailing
                 list, or just curious about an address&apos;s validity — we&apos;ve got you covered.
