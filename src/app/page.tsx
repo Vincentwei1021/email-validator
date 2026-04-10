@@ -1,3 +1,4 @@
+import AdBanner from "@/components/AdBanner";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import EmailValidatorTool from "@/components/EmailValidator";
@@ -102,6 +103,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <AdBanner className="mx-auto max-w-5xl px-4 py-4" />
         <EmailValidatorTool />
         <HowTo />
 
@@ -173,6 +175,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <AdBanner className="mx-auto max-w-5xl px-4 py-6" />
       </main>
       <Footer />
 
